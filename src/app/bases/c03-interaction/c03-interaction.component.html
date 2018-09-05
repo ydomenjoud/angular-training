@@ -1,0 +1,14 @@
+<h1>Components interactions</h1>
+
+<h2>You entered name <u>{{ name }}</u></h2>
+<app-c03-child
+  [name]="name"
+  (nameChange)="nameChange($event)"
+></app-c03-child>
+
+<!--
+two ways
+-->
+<app-c03-child
+  [(name)]="name"
+></app-c03-child>

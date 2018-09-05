@@ -1,0 +1,8 @@
+
+nickname <b>{{ name }}</b> not available. <br/>
+pick an alternative :
+<ul>
+  <li *ngFor="let variante of variantesList">
+    <button (click)="changeName(variante)">{{ name }} {{ variante }}</button>
+  </li>
+</ul>

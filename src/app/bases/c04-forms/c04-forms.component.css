@@ -1,0 +1,14 @@
+.invalid {
+  background: #FDD;
+}
+
+.valid {
+  background: #DFD;
+}
+
+input.invalid {
+  background: #FAA;
+}
+input.valid {
+  background: #AFA;
+}

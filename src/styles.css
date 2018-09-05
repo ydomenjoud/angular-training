@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+input.ng-valid {
+  background: #AFA;
+}
+input.ng-invalid {
+  background: #FAA;
+}
