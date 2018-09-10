@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { C02DirectiveComponent } from './c02-directive.component';
+import { B06LifecycleComponent } from './b06-lifecycle.component';
 
-describe('C02DirectiveComponent', () => {
-  let component: C02DirectiveComponent;
-  let fixture: ComponentFixture<C02DirectiveComponent>;
+describe('B06LifecycleComponent', () => {
+  let component: B06LifecycleComponent;
+  let fixture: ComponentFixture<B06LifecycleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ C02DirectiveComponent ]
+      declarations: [ B06LifecycleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(C02DirectiveComponent);
+    fixture = TestBed.createComponent(B06LifecycleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

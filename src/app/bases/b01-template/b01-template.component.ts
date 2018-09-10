@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-c01-template',
-  templateUrl: './c01-template.component.html',
-  styleUrls: ['./c01-template.component.css']
+  templateUrl: './b01-template.component.html',
+  styleUrls: ['./b01-template.component.css']
 })
-export class C01TemplateComponent implements OnInit {
+export class B01TemplateComponent implements OnInit {
 
   title = 'manage template';
 

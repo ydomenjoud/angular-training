@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { C03InteractionComponent } from './c03-interaction.component';
+import { B05FormsReactiveComponent } from './b05-forms-reactive.component';
 
-describe('C03InteractionComponent', () => {
-  let component: C03InteractionComponent;
-  let fixture: ComponentFixture<C03InteractionComponent>;
+describe('B05FormsReactiveComponent', () => {
+  let component: B05FormsReactiveComponent;
+  let fixture: ComponentFixture<B05FormsReactiveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ C03InteractionComponent ]
+      declarations: [ B05FormsReactiveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(C03InteractionComponent);
+    fixture = TestBed.createComponent(B05FormsReactiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

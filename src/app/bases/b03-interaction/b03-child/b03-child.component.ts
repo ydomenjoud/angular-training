@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-c03-child',
-  templateUrl: './c03-child.component.html',
-  styleUrls: ['./c03-child.component.css']
+  templateUrl: './b03-child.component.html',
+  styleUrls: ['./b03-child.component.css']
 })
-export class C03ChildComponent implements OnInit {
+export class B03ChildComponent implements OnInit {
 
   @Input() name: string;
 

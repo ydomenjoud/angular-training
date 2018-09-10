@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { C05FormsReactiveComponent } from './c05-forms-reactive.component';
+import { B02DirectiveComponent } from './b02-directive.component';
 
-describe('C05FormsReactiveComponent', () => {
-  let component: C05FormsReactiveComponent;
-  let fixture: ComponentFixture<C05FormsReactiveComponent>;
+describe('B02DirectiveComponent', () => {
+  let component: B02DirectiveComponent;
+  let fixture: ComponentFixture<B02DirectiveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ C05FormsReactiveComponent ]
+      declarations: [ B02DirectiveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(C05FormsReactiveComponent);
+    fixture = TestBed.createComponent(B02DirectiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

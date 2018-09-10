@@ -1,3 +1,7 @@
-
-
-<app-c05-forms-reactive></app-c05-forms-reactive>
+<nav>
+  <a
+    *ngFor="let module of modules"
+    [routerLink]="[module]"
+  >{{module}}</a>
+</nav>
+<router-outlet></router-outlet>

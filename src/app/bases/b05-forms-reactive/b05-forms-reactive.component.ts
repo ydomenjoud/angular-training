@@ -8,10 +8,10 @@ export function allowOnlyDomainValidator(control: AbstractControl) {
 
 @Component({
   selector: 'app-c05-forms-reactive',
-  templateUrl: './c05-forms-reactive.component.html',
-  styleUrls: ['./c05-forms-reactive.component.css']
+  templateUrl: './b05-forms-reactive.component.html',
+  styleUrls: ['./b05-forms-reactive.component.css']
 })
-export class C05FormsReactiveComponent implements OnInit {
+export class B05FormsReactiveComponent implements OnInit {
 
   emailControl = new FormControl('', Validators.email);
 

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-c02-directive',
-  templateUrl: './c02-directive.component.html',
-  styleUrls: ['./c02-directive.component.css']
+  templateUrl: './b02-directive.component.html',
+  styleUrls: ['./b02-directive.component.css']
 })
-export class C02DirectiveComponent implements OnInit {
+export class B02DirectiveComponent implements OnInit {
 
   displayed = true;
 

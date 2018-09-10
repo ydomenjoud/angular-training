@@ -11,19 +11,19 @@ base
   lifecycle Hooks
 
 advanced
-  environnement ( dev, prod )
   dependency injection + custom service
+  routing
   custom directive (hostbinding, hostlistener)/ pipes
   observable
   http request (https://reqres.in/api/users?page=2)
-  routing
 
 confirmed
-  styles
   HTTP interceptor
   guard
   architecture: CoreModule, SharedModule, forRoot, exports
+  environnement ( dev, prod )
   i18n
+  testing
 
 expert
   projection, view child, content child
@@ -31,7 +31,6 @@ expert
   ChangeDetection
   lint
   build
-  testing
   custom annotation
   
 
