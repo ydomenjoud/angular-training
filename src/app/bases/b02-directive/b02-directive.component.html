@@ -59,16 +59,16 @@ Otherwise, the DOM element for that item will remain the same.
   <ng-template [ngSwitchCase]="1">
     Angular JS, first try of angular
   </ng-template>
-  <ng-template ngSwitchCase="2">
+  <ng-template *ngSwitchCase="2">
     Angular 2, rebuild by Google
   </ng-template>
-  <ng-template ngSwitchCase="3">
+  <ng-template *ngSwitchCase="3">
     Angular 3, ghost version
   </ng-template>
-  <ng-template ngSwitchCase="4">
+  <ng-template *ngSwitchCase="4">
     Angular 4, improved version
   </ng-template>
-  <ng-template ngSwitchDefault>
+  <ng-template *ngSwitchDefault>
     Angular {{ selectedVersion }}
   </ng-template>
 </div>

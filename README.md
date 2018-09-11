@@ -11,8 +11,8 @@ base
   lifecycle Hooks
 
 advanced
-  dependency injection + custom service
   routing
+  dependency injection + custom service
   custom directive (hostbinding, hostlistener)/ pipes
   observable
   http request (https://reqres.in/api/users?page=2)

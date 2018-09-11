@@ -27,7 +27,7 @@ import { B06LifecycleComponent } from './b06-lifecycle/b06-lifecycle.component';
     B03ChildComponent,
     B04FormsComponent,
     B05FormsReactiveComponent,
-    B06LifecycleComponent
+    B06LifecycleComponent,
   ]
 })
 export class BasesModule {
