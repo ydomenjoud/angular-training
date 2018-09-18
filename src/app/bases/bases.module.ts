@@ -13,6 +13,8 @@ import { B05FormsReactiveComponent } from 'src/app/bases/b05-forms-reactive/b05-
 import { B06LifecycleComponent } from './b06-lifecycle/b06-lifecycle.component';
 import { B00ComponentComponent } from './b00-component/b00-component.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ColorPickerComponent } from 'src/app/bases/exercices/color-picker/color-picker.component';
+import { DatePickerComponent } from 'src/app/bases/exercices/date-picker/date-picker.component';
 
 @NgModule({
   imports: [
@@ -32,6 +34,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     B05FormsReactiveComponent,
     B06LifecycleComponent,
     B00ComponentComponent,
+    ColorPickerComponent,
+    DatePickerComponent
   ]
 })
 export class BasesModule {
