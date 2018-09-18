@@ -1,0 +1,33 @@
+<!--<p>Doit permettre de spécifier une couleur d'entrée-->
+<!--Doit permettre de retourner la couleur sélectionnée par l'utilisateur-->
+<!--Doit afficher un panel de couleur.-->
+<!--</p>-->
+
+You selected
+<span class="box"
+      [style.background]="colorControl.value">
+  </span>
+{{ colorControl.value }}
+<section>
+
+  <div
+    *ngFor="let color of colorsList; let index=index">
+    <input
+      type="radio"
+      name="color"
+      [formControl]="colorControl"
+      [value]="color"
+      [id]="'color_'+index">
+
+    <label [for]="'color_'+index">
+      <!-- petit carré de la couleur -->
+      <span
+        class="box"
+        [style.background]="color">
+      </span>
+      <!-- affichage du code de la couleur-->
+      {{ color }}
+    </label>
+  </div>
+  <button type="button" (click)="dispatchColorUpdate()">Update color</button>
+</section>

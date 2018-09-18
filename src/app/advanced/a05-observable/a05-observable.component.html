@@ -1,3 +1,35 @@
-<p>
-  a05-observable works!
-</p>
+<h1>Observable</h1>
+
+<h2>Basic</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="componentCode" [expanded]="true"></code>
+  </article>
+  <article>
+    <input type="text" #todoName (keyup.enter)="addTodo(todoName.value)">
+    <button (click)="addTodo(todoName.value)">Add Todo</button>
+
+    Last action
+    <ng-container *ngIf="(todoAdded$ | async) as todo">
+      <p>
+        Last todo added {{ todo.message }}
+      </p>
+      <ul>
+        <li
+          *ngFor="let element of (todo|keyvalue)"
+        >{{ element | json}}
+        </li>
+      </ul>
+    </ng-container>
+  </article>
+</section>
+
+
+<h2>Advanced</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="component2Code" [expanded]="true"></code>
+  </article>
+  <article>
+  </article>
+</section>

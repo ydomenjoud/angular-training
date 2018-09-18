@@ -11,12 +11,16 @@ import { A05ObservableComponent } from 'src/app/advanced/a05-observable/a05-obse
 import { A06HttpRequestComponent } from 'src/app/advanced/a06-http-request/a06-http-request.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SquarePipe } from 'src/app/advanced/square.pipe';
+import { TodosService } from 'src/app/advanced/todos.service';
 
 @NgModule({
   imports: [
     CommonModule,
     AdvancedRoutingModule,
     SharedModule,
+  ],
+  providers: [
+    TodosService
   ],
   declarations: [
     AdvancedContainerComponent,
