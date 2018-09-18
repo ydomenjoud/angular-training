@@ -1,16 +1,5 @@
 
-<button (click)="increment()">increment {{ count }}</button>
-<button (click)="toggleInterval()">{{ intervalReference ? 'clear' : 'start' }} interval</button>
-
-
-<ul>
-  <li
-    *ngFor="let message of messages">
-    [{{ message.date | date: 'HH:mm:ss'}}] {{ message.content }}
-  </li>
-</ul>
-
-<h2>Life Cycle Order</h2>
+<h1>Life Cycle Order</h1>
 <table>
   <thead>
   <tr>
@@ -87,3 +76,22 @@
   </tr>
   </tbody>
 </table>
+
+<h2>Exemple</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="componentCode" [expanded]="true"></code>
+  </article>
+  <article>
+    <button (click)="increment()">increment {{ count }}</button>
+    <button (click)="toggleInterval()">{{ intervalReference ? 'clear' : 'start' }} interval</button>
+
+
+    <ul>
+      <li
+        *ngFor="let message of messages">
+        [{{ message.date | date: 'HH:mm:ss'}}] {{ message.content }}
+      </li>
+    </ul>
+  </article>
+</section>

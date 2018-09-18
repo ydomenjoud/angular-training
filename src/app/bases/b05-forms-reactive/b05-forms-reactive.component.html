@@ -1,33 +1,5 @@
 <h1>Reactive forms</h1>
 
-<h2>formControl</h2>
-<form >
-
-  <div>
-    EMAIL: <input name="email" [formControl]="emailControl">
-    {{ emailControl.value }}
-  </div>
-  <div>
-    PASSWORD: <input name="login" [formControl]="passwordControl" type="password">
-    {{ passwordControl.value }}
-  </div>
-
-</form>
-
-<h2>formGroup &amp; formControlName</h2>
-<button (click)="setValidEmail()">Set valid email</button>
-<form [formGroup]="authForm" [ngClass]="{invalid: authForm.invalid}">
-  status {{ authForm.status }}
-  <div>
-    EMAIL (@google.fr): <input name="email" formControlName="email">
-  </div>
-  <div>
-    PASSWORD: <input name="login" formControlName="password" type="password">
-  </div>
-
-
-</form>
-
 
 <h2>Async vs. sync</h2>
 <p>Reactive forms are synchronous, and template-driven forms are asynchronous.</p>
@@ -40,3 +12,47 @@
 
 <p>The asynchrony of template-driven forms also complicates unit testing. You must wrap your test block in async() or fakeAsync() to avoid looking for values in the form that aren't there yet. With reactive forms, everything is available immediately.</p>
 
+
+<h2>formControl</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="componentFormControlCode" [expanded]="true"></code>
+
+    <h3>Résultat</h3>
+    <form >
+      <div>
+        EMAIL: <input name="email" [formControl]="emailControl">
+        {{ emailControl.value }}
+      </div>
+      <div>
+        PASSWORD: <input name="login" [formControl]="passwordControl" type="password">
+        {{ passwordControl.value }}
+      </div>
+    </form>
+  </article>
+  <article>
+    <code appHighlight [code]="templateFormControlCode" [expanded]="true" language="html"></code>
+  </article>
+</section>
+
+<h2>formGroup &amp; formControlName</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="componentFormGroupCode" [expanded]="true"></code>
+  </article>
+  <article>
+    <code appHighlight [code]="templateFormGroupCode" [expanded]="true" language="html"></code>
+
+    <h3>Résultat</h3>
+    <button (click)="setValidEmail()">Set valid email</button>
+    <form [formGroup]="authForm" [ngClass]="{invalid: authForm.invalid}">
+      status {{ authForm.status }}
+      <div>
+        EMAIL (@google.fr): <input name="email" formControlName="email">
+      </div>
+      <div>
+        PASSWORD: <input name="login" formControlName="password" type="password">
+      </div>
+    </form>
+  </article>
+</section>

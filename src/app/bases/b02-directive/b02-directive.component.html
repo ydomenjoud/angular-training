@@ -1,74 +1,116 @@
 <h1>Directives</h1>
 
 <h2>ngIf else</h2>
-<button (click)="toggleVisibility()">Toggle content</button>
 
-<!--
-  removed from dom
--->
-<div *ngIf="displayed">
-  Content displayed
-</div>
+<section class="code">
+  <article>
+    <code appHighlight [code]="ifCode" [expanded]="true" language="html"></code>
+  </article>
+  <article>
+    <button (click)="toggleVisibility()">Toggle content</button>
 
-<!--
-ng-template / ng-container
--->
-<div *ngIf="displayed; else nothingDisplayed">
-  Content displayed
-</div>
-<ng-template #nothingDisplayed>
-  <div>
-    Nothing Displayed
-  </div>
-</ng-template>
+    <!--
+      removed from dom
+    -->
+    <div *ngIf="displayed">
+      Content displayed
+    </div>
+
+    <!--
+    ng-template / ng-container
+    -->
+    <div *ngIf="displayed; else nothingDisplayed">
+      Content displayed
+    </div>
+    <ng-template #nothingDisplayed>
+      <div>
+        Nothing Displayed
+      </div>
+    </ng-template>
+  </article>
+</section>
 
 
 <h2>ngFor</h2>
-<!--
-When the contents of the iterator changes, NgForOf makes the corresponding changes to the DOM:
+<p>When the contents of the iterator changes, NgForOf makes the corresponding changes to the DOM:</p>
+<p>When an item is added, a new instance of the template is added to the DOM.</p>
+<p>When an item is removed, its template instance is removed from the DOM.</p>
+<p>When items are reordered, their respective templates are reordered in the DOM.</p>
+<p>Otherwise, the DOM element for that item will remain the same.</p>
 
-When an item is added, a new instance of the template is added to the DOM.
-When an item is removed, its template instance is removed from the DOM.
-When items are reordered, their respective templates are reordered in the DOM.
-Otherwise, the DOM element for that item will remain the same.
--->
-<button (click)="addNextVersion()">Add Next Version</button>
-<ul>
-  <li *ngFor="let version of versionsList">
-    {{ version }}
-  </li>
-</ul>
+<section class="code">
+  <article>
+    <code appHighlight [code]="forCode" [expanded]="true" language="html"></code>
+  </article>
+  <article>
+    <button (click)="addNextVersion()">Add Next Version</button>
+    <ul>
+      <li *ngFor="let version of versionsList">
+        {{ version }}
+      </li>
+    </ul>
+  </article>
+</section>
 
-<ul>
-  <li
-    *ngFor="let version of versionsList; let index=index; let last=last; let odd=odd; let even=even; let first=first"
-    (click)="selectVersion(version)"
-  >
-    <button>
-      {{ index }} : {{ version }} -
-      <span *ngIf="odd">odd</span> -
-      <span *ngIf="even">even</span> -
-      <span *ngIf="last">Last version</span>
-    </button>
-  </li>
-</ul>
+<section class="code">
+  <article>
+    <code appHighlight [code]="forAdvancedCode" [expanded]="true" language="html"></code>
+  </article>
+  <article>
+    <button (click)="addNextVersion()">Add Next Version</button>
+    <ul>
+      <li
+        *ngFor="let version of versionsList; let index=index; let last=last; let odd=odd; let even=even; let first=first"
+        (click)="selectVersion(version)"
+      >
+        <button>
+          {{ index }} : {{ version }} -
+          <span *ngIf="odd">odd</span> -
+          <span *ngIf="even">even</span> -
+          <span *ngIf="last">Last version</span>
+        </button>
+      </li>
+    </ul>
+  </article>
+</section>
+
 
 <h3>ngSwitch</h3>
 
-<div [ngSwitch]="selectedVersion">
-  <ng-template [ngSwitchCase]="1">
-    Angular JS, first try of angular
-  </ng-template>
-  <ng-template *ngSwitchCase="2">
-    Angular 2, rebuild by Google
-  </ng-template>
-  <ng-template *ngSwitchCase="3">
-    Angular 3, ghost version
-  </ng-template>
-  <ng-template *ngSwitchCase="4">
-    Angular 4, improved version
-  </ng-template>
-  <ng-template *ngSwitchDefault>
-    Angular {{ selectedVersion }}
-  </ng-template>
-</div>
+<section class="code">
+  <article>
+    <code appHighlight [code]="switchCode"  [expanded]="true" language="html"></code>
+  </article>
+  <article>
+    <blockquote>
+      <button (click)="addNextVersion()">Add Next Version</button>
+    </blockquote>
+
+    <blockquote>
+      <button
+        *ngFor="let version of versionsList;"
+        (click)="selectVersion(version)"
+      >
+        {{ version }}
+      </button>
+    </blockquote>
+
+    <div [ngSwitch]="selectedVersion">
+      <ng-template [ngSwitchCase]="1">
+        Angular JS, first try of angular
+      </ng-template>
+      <ng-template [ngSwitchCase]="2">
+        Angular 2, rebuild by Google
+      </ng-template>
+      <ng-template [ngSwitchCase]="3">
+        Angular 3, ghost version
+      </ng-template>
+      <ng-template [ngSwitchCase]="4">
+        Angular 4, improved version
+      </ng-template>
+      <ng-template ngSwitchDefault>
+        Angular {{ selectedVersion }}
+      </ng-template>
+    </div>
+  </article>
+</section>

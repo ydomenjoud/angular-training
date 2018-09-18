@@ -2,62 +2,85 @@
 
 <h2>Template driven</h2>
 <h3>ngModel</h3>
-<form>
-  you entered {{ email }}<br/>
-  <div>
-    one way<input [ngModel]="email" name="email">
-  </div>
-  <div>
-    Two ways<input [(ngModel)]="email" name="email">
-  </div>
-</form>
+
+<section class="code">
+  <article>
+    <code appHighlight [code]="ngModelCode" language="html"></code>
+  </article>
+  <article>
+    <form>
+      you entered {{ email }}<br/>
+      <div>
+        one way<input [ngModel]="email" name="email">
+      </div>
+      <div>
+        Two ways<input [(ngModel)]="email" name="email">
+      </div>
+    </form>
+  </article>
+</section>
 
 <h3>template ref</h3>
-<form>
-  you entered {{ firstname }}
-  <div>keyup:
-    <input #firstnameInput (keyup)="updateFirstname(firstnameInput.value)">
-  </div>
-  <div>keydown.enter:
-    <input #firstnameInput2 (keydown.enter)="updateFirstname(firstnameInput2.value)" [value]="firstname">
-  </div>
-</form>
 
-
-<h3>validity &</h3>
-<form #form="ngForm">
-  <fieldset
-    [ngClass]="{valid: form.valid, invalid: form.invalid}">
-    <legend>form {{ form.valid ? 'valid' : 'invalid' }}</legend>
-    <div>
-      required
-      <input
-        #email1="ngModel"
-        [ngClass]="{valid: email1.valid, invalid: email1.invalid}"
-        [(ngModel)]="email"
-        name="email1"
-        required>
-    </div>
-    <div>
-      required + 4 char
-      <input
-        #email2="ngModel"
-        [ngClass]="{valid: email2.valid, invalid: email2.invalid}"
-        [(ngModel)]="email"
-        name="email2"
-        required
-        minlength="4"
-      >
-
-      <div *ngIf="email2.invalid && (email2.dirty || email2.touched)">
-        <div *ngIf="email2.errors?.required">
-          Name is required.
-        </div>
-        <div *ngIf="email2.errors?.minlength">
-          minlength is 4.
-        </div>
+<section class="code">
+  <article>
+    <code appHighlight [code]="templateRefCode"  language="html"></code>
+  </article>
+  <article>
+    <form>
+      you entered {{ firstname }}
+      <div>keyup:
+        <input #firstnameInput (keyup)="updateFirstname(firstnameInput.value)">
       </div>
-    </div>
-  </fieldset>
-</form>
+      <div>keydown.enter:
+        <input #firstnameInput2 (keydown.enter)="updateFirstname(firstnameInput2.value)" [value]="firstname">
+      </div>
+    </form>
+  </article>
+</section>
+
+
+<h3>validity & errors</h3>
+<section class="code">
+  <article>
+    <code appHighlight [code]="validityCode"  language="html"></code>
+  </article>
+  <article>
+    <form #form="ngForm">
+      <fieldset
+        [ngClass]="{valid: form.valid, invalid: form.invalid}">
+        <legend>form {{ form.valid ? 'valid' : 'invalid' }}</legend>
+        <div>
+          required
+          <input
+            #email1="ngModel"
+            [ngClass]="{valid: email1.valid, invalid: email1.invalid}"
+            [(ngModel)]="email"
+            name="email1"
+            required>
+        </div>
+        <div>
+          required + 4 char
+          <input
+            #email2="ngModel"
+            [ngClass]="{valid: email2.valid, invalid: email2.invalid}"
+            [(ngModel)]="email"
+            name="email2"
+            required
+            minlength="4"
+          >
+
+          <div *ngIf="email2.invalid && (email2.dirty || email2.touched)">
+            <div *ngIf="email2.errors?.required">
+              Name is required.
+            </div>
+            <div *ngIf="email2.errors?.minlength">
+              minlength is 4.
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </article>
+</section>
 

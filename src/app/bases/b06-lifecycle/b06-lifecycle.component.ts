@@ -25,9 +25,61 @@ export class B06LifecycleComponent implements OnInit,
 
   count = 0;
 
+  intervalReference;
+
+  componentCode = `
+export class B06LifecycleComponent implements OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
+
   private messagesList: { content: string, date: Date }[] = [];
 
-  intervalReference;
+  constructor() {
+  }
+
+  get messages() {
+    return this.messagesList;
+  }
+
+  private log(content: string) {
+    const date = new Date();
+    this.messagesList.unshift({content, date});
+  }
+
+  ngOnInit() {
+    this.log('ngOnInit');
+  }
+
+  ngAfterContentInit(): void {
+    this.log('ngAfterContentInit');
+  }
+
+  ngAfterViewChecked(): void {
+    this.log('ngAfterViewChecked');
+  }
+
+  ngAfterViewInit(): void {
+    this.log('ngAfterViewInit');
+  }
+
+  ngDoCheck(): void {
+    this.log('ngDoCheck');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.log('ngOnChanges');
+  }
+
+  ngOnDestroy(): void {
+    this.log('ngOnDestroy');
+  }
+`;
+
+  private messagesList: { content: string, date: Date }[] = [];
 
   constructor() {
   }

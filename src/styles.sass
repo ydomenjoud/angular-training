@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "highlight.sass"
+
+
+input.ng-valid
+  background: #AFA
+
+input.ng-invalid
+  background: #FAA
+
+body, html
+  padding: 0
+  margin: 0
+
+body
+  padding-bottom: 50px
+
+main
+  padding: 10px
+
+nav
+  background: #EEE
+  border-bottom: 1px solid #CCC
+  display: flex
+  position: sticky
+  top: 29px
+  right: 0
+  left: 0
+  z-index: 1000
+  a
+    padding: 5px 10px
+    text-decoration: none
+    &.active, &:hover
+      background: #FFF
+      color: #000
+
+app-root > nav
+  top: 0
+
+thead
+  background: #999
+
+tr:nth-child(2n)
+  background-color: #DDD
+
+td
+  padding: 5px

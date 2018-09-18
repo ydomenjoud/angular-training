@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 export function allowOnlyDomainValidator(control: AbstractControl) {
   const allowed = control.value.indexOf('google.fr') > -1;
@@ -18,6 +18,60 @@ export class B05FormsReactiveComponent implements OnInit {
   passwordControl = new FormControl('', Validators.required);
 
   authForm: FormGroup;
+
+  componentFormControlCode = `
+  emailControl = new FormControl('', Validators.email);
+  passwordControl = new FormControl('', Validators.required);
+`;
+
+  templateFormControlCode = `
+<form >
+
+  <div>
+    EMAIL: <input name="email" [formControl]="emailControl">
+    {{ emailControl.value }}
+  </div>
+  <div>
+    PASSWORD: <input name="login" [formControl]="passwordControl" type="password">
+    {{ passwordControl.value }}
+  </div>
+
+</form>
+`;
+
+  componentFormGroupCode = `
+function allowOnlyDomainValidator(control: AbstractControl) {
+  const allowed = control.value.indexOf('google.fr') > -1;
+  return allowed ? null : {'forbiddenEmail': {value: control.value}};
+}
+
+this.authForm = this.formBuilder.group({
+      email: ['', [Validators.email, Validators.required, allowOnlyDomainValidator]],
+      password: ['', Validators.required],
+      // address: this.formBuilder.group({
+      //   street: ['', Validators.required],
+      //   city: ['', Validators.required],
+      //   zip: ['', Validators.pattern(/[0-9]{5}/)]
+      // })
+    });
+
+    this.authForm.valueChanges.subscribe(value => {
+      console.table(this.errors);
+    });
+`;
+
+  templateFormGroupCode = `
+<form [formGroup]="authForm" [ngClass]="{invalid: authForm.invalid}">
+  status {{ authForm.status }}
+  <div>
+    EMAIL (@google.fr): <input name="email" formControlName="email">
+  </div>
+  <div>
+    PASSWORD: <input name="login" formControlName="password" type="password">
+  </div>
+</form>
+`;
+
 
   constructor(private formBuilder: FormBuilder) {
   }

@@ -1,0 +1,9 @@
+<nav>
+  <a
+    *ngFor="let route of routes"
+    routerLinkActive="active"
+    [routerLink]="[route.path]">{{ getName(route.component.name) }}</a>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

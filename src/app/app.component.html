@@ -1,6 +1,7 @@
 <nav>
   <a
     *ngFor="let module of modules"
+    routerLinkActive="active"
     [routerLink]="[module]"
   >{{module}}</a>
 </nav>

@@ -4,8 +4,10 @@ import { B03InteractionComponent } from 'src/app/bases/b03-interaction/b03-inter
 import { B04FormsComponent } from 'src/app/bases/b04-forms/b04-forms.component';
 import { B05FormsReactiveComponent } from 'src/app/bases/b05-forms-reactive/b05-forms-reactive.component';
 import { B06LifecycleComponent } from 'src/app/bases/b06-lifecycle/b06-lifecycle.component';
+import { B00ComponentComponent } from 'src/app/bases/b00-component/b00-component.component';
 
 export const routes = [
+  {path: 'b00', component: B00ComponentComponent},
   {path: 'b01', component: B01TemplateComponent},
   {path: 'b02', component: B02DirectiveComponent},
   {path: 'b03', component: B03InteractionComponent},

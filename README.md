@@ -20,8 +20,8 @@ advanced
 confirmed
   HTTP interceptor
   guard
-  architecture: CoreModule, SharedModule, forRoot, exports
   environnement ( dev, prod )
+  architecture: CoreModule, SharedModule, forRoot, exports
   i18n
   testing
 

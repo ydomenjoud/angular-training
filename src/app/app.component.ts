@@ -11,7 +11,7 @@ export class AppComponent {
   }
 
   get modules() {
-    return ['bases'];
+    return ['bases', 'advanced'];
   }
 
 }

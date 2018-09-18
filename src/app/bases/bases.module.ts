@@ -11,13 +11,16 @@ import { B03ChildComponent } from 'src/app/bases/b03-interaction/b03-child/b03-c
 import { B04FormsComponent } from 'src/app/bases/b04-forms/b04-forms.component';
 import { B05FormsReactiveComponent } from 'src/app/bases/b05-forms-reactive/b05-forms-reactive.component';
 import { B06LifecycleComponent } from './b06-lifecycle/b06-lifecycle.component';
+import { B00ComponentComponent } from './b00-component/b00-component.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BasesRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   declarations: [
     BasesContainerComponent,
@@ -28,6 +31,7 @@ import { B06LifecycleComponent } from './b06-lifecycle/b06-lifecycle.component';
     B04FormsComponent,
     B05FormsReactiveComponent,
     B06LifecycleComponent,
+    B00ComponentComponent,
   ]
 })
 export class BasesModule {

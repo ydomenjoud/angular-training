@@ -14,6 +14,11 @@ export class BasesContainerComponent implements OnInit {
     return routes;
   }
 
+  getName(componentName: string) {
+    const length = componentName.length - 'Component'.length;
+    return componentName.substring(3, length);
+  }
+
   ngOnInit() {
   }
 

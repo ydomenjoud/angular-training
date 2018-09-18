@@ -1,14 +1,39 @@
 <h1>Components interactions</h1>
 
-<h2>You entered name <u>{{ name }}</u></h2>
-<app-c03-child
-  [name]="name"
-  (nameChange)="nameChange($event)"
-></app-c03-child>
+<h2>child</h2>
 
-<!--
-two ways
--->
-<app-c03-child
-  [(name)]="name"
-></app-c03-child>
+<section class="code">
+  <article>
+    <code appHighlight [code]="childComponentCode" [expanded]="true" ></code>
+  </article>
+  <article>
+    <code appHighlight [code]="childTemplateCode" [expanded]="true" language="html" ></code>
+  </article>
+</section>
+
+<h2>One way</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="oneWayCode" [expanded]="true" language="html"></code>
+  </article>
+  <article>
+    <p>You entered name <u>{{ name }}</u></p>
+    <app-c03-child
+      [name]="name"
+      (nameChange)="nameChange($event)"
+    ></app-c03-child>
+  </article>
+</section>
+
+<h2>Two ways</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="twoWayCode" [expanded]="true" language="html"></code>
+  </article>
+  <article>
+    <p>You entered name <u>{{ name2 }}</u></p>
+    <app-c03-child
+      [(name)]="name2"
+    ></app-c03-child>
+  </article>
+</section>

@@ -1,7 +1,10 @@
 <nav>
   <a
     *ngFor="let route of routes"
-    [routerLink]="[route.path]">{{ route.component.name}}</a>
+    routerLinkActive="active"
+    [routerLink]="[route.path]">
+    {{ getName(route.component.name) }}
+  </a>
 </nav>
 <main>
   <router-outlet></router-outlet>
