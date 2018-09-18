@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pregp": "rm -rf docs",
-    "gp": "ng build --prod --output-path docs --base-href angular-training",
+    "gp": "ng build --prod --output-path docs --base-href /angular-training/",
     "postgp": "cp docs/index.html docs/404.html"
   },
   "private": true,
