@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { B02DirectiveComponent } from './b02-directive.component';
+import { B00ComponentComponent } from 'src/app/bases/b00-component/b00-component.component';
+import { HighlightDirective } from 'src/app/shared/directives/highlight.directive';
 
 describe('B02DirectiveComponent', () => {
   let component: B02DirectiveComponent;
@@ -8,7 +10,7 @@ describe('B02DirectiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ B02DirectiveComponent ]
+      declarations: [ B02DirectiveComponent, HighlightDirective ]
     })
     .compileComponents();
   }));

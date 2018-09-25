@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdvancedContainerComponent } from './advanced-container.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AdvancedContainerComponent', () => {
   let component: AdvancedContainerComponent;
@@ -8,9 +9,10 @@ describe('AdvancedContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdvancedContainerComponent ]
+      imports: [RouterTestingModule],
+      declarations: [AdvancedContainerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

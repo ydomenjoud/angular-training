@@ -22,7 +22,7 @@ export class MyComponent implements OnInit {
   ngOnInit() {
   }
 
-}  
+}
 `;
 
   templateCall = '<app-mycomponent></app-mycomponent>';

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { A02InjectionComponent } from './a02-injection.component';
+import { A01RoutingComponent } from 'src/app/advanced/a01-routing/a01-routing.component';
+import { HighlightDirective } from 'src/app/shared/directives/highlight.directive';
 
 describe('A02InjectionComponent', () => {
   let component: A02InjectionComponent;
@@ -8,9 +10,12 @@ describe('A02InjectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ A02InjectionComponent ]
+      declarations: [
+        A02InjectionComponent,
+        HighlightDirective
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

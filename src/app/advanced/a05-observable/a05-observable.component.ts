@@ -18,7 +18,7 @@ export class A05ObservableComponent implements OnInit, OnDestroy {
 
   componentCode = `
   this.todoAdded$ = this.todosService.todoAddedObservable;
-  
+
   this.subscription = this.todosService
     .todoAdded$
     .subscribe(value => {
@@ -43,7 +43,7 @@ export class A05ObservableComponent implements OnInit, OnDestroy {
     value => {
       console.log(value);
     }
-  );  
+  );
 `;
 
   constructor(private todosService: TodosService) {

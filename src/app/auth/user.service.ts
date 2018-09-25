@@ -11,16 +11,20 @@ import { map, tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  user$: BehaviorSubject<User> = new BehaviorSubject(null);
+  user$: BehaviorSubject<User>;
 
-  token$: BehaviorSubject<AuthToken> = new BehaviorSubject(null);
+  token$: BehaviorSubject<AuthToken>;
 
-  private apiUrl = environment.apiUrl + '/Users';
+  readonly apiUrl = environment.apiUrl + '/Users';
 
   constructor(private http: HttpClient) {
+
+    this.user$ = new BehaviorSubject(null);
+    this.token$ = new BehaviorSubject(null);
+
     this.token$.subscribe(
       token => {
-        if (token.user) {
+        if (token && token.user) {
           this.user$.next(token.user);
         }
       }
