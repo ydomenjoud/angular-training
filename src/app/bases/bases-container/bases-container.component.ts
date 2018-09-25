@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routes } from 'src/app/bases/bases.routes';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-bases-container',
@@ -14,9 +15,8 @@ export class BasesContainerComponent implements OnInit {
     return routes;
   }
 
-  getName(componentName: string) {
-    const length = componentName.length - 'Component'.length;
-    return componentName.substring(3, length);
+  getTitle(route: Route) {
+    return route.data.title;
   }
 
   ngOnInit() {

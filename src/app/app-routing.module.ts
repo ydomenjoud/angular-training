@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasesModule } from 'src/app/bases/bases.module';
-import { AdvancedModule } from 'src/app/advanced/advanced.module';
 
 const routes: Routes = [
-  {path: 'bases', loadChildren: () => BasesModule},
-  {path: 'advanced', loadChildren: () => AdvancedModule}
+  {
+    path: 'bases',
+    loadChildren: './bases/bases.module#BasesModule'
+  },
+  {
+    path: 'advanced',
+    loadChildren: './advanced/advanced.module#AdvancedModule'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

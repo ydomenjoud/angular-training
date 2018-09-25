@@ -2,7 +2,7 @@
   <a
     *ngFor="let route of routes"
     routerLinkActive="active"
-    [routerLink]="[route.path]">{{ getName(route.component.name) }}</a>
+    [routerLink]="[route.path]">{{ getTitle(route) }}</a>
 </nav>
 <main>
   <router-outlet></router-outlet>

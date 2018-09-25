@@ -6,7 +6,7 @@ import { AdvancedContainerComponent } from 'src/app/advanced/advanced-container/
 const routes: Routes = [{
   path: '',
   component: AdvancedContainerComponent,
-  children
+  children: children
 }];
 
 @NgModule({

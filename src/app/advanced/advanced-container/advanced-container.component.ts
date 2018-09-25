@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routes } from 'src/app/advanced/advanced.routes';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-advanced-container',
@@ -13,9 +14,8 @@ export class AdvancedContainerComponent implements OnInit {
     return routes;
   }
 
-  getName(componentName: string) {
-    const length = componentName.length - 'Component'.length;
-    return componentName.substring(3, length);
+  getTitle(route: Route) {
+    return route.data.title;
   }
 
   ngOnInit() {

@@ -8,10 +8,10 @@ import { A06HttpRequestComponent } from 'src/app/advanced/a06-http-request/a06-h
 
 
 export const routes: Routes = [
-  { path: 'a01', component: A01RoutingComponent},
-  { path: 'a02', component: A02InjectionComponent},
-  { path: 'a03', component: A03DirectiveComponent},
-  { path: 'a04', component: A04PipeComponent},
-  { path: 'a05', component: A05ObservableComponent},
-  { path: 'a06', component: A06HttpRequestComponent},
+  { path: 'a01', data: {title: 'Routing'}, component: A01RoutingComponent},
+  { path: 'a02', data: {title: 'Injection'}, component: A02InjectionComponent},
+  { path: 'a03', data: {title: 'Directive'}, component: A03DirectiveComponent},
+  { path: 'a04', data: {title: 'Pipe'}, component: A04PipeComponent},
+  { path: 'a05', data: {title: 'Observable'}, component: A05ObservableComponent},
+  { path: 'a06', data: {title: 'HttpRequest'}, component: A06HttpRequestComponent},
 ];
