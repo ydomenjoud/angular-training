@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AdvancedContainerComponent } from 'src/app/advanced/advanced-container/advanced-container.component';
 import { AdvancedRoutingModule } from 'src/app/advanced/advanced-routing.module';
@@ -9,15 +10,22 @@ import { A03DirectiveComponent } from 'src/app/advanced/a03-directive/a03-direct
 import { A04PipeComponent } from 'src/app/advanced/a04-pipe/a04-pipe.component';
 import { A05ObservableComponent } from 'src/app/advanced/a05-observable/a05-observable.component';
 import { A06HttpRequestComponent } from 'src/app/advanced/a06-http-request/a06-http-request.component';
+import { A05ObservableExample1Component } from './a05-observable/a05-observable-example1/a05-observable-example1.component';
+import { A05ObservableExample2Component } from './a05-observable/a05-observable-example2/a05-observable-example2.component';
+import { A05ObservableExample3Component } from './a05-observable/a05-observable-example3/a05-observable-example3.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SquarePipe } from 'src/app/advanced/square.pipe';
 import { TodosService } from 'src/app/advanced/todos.service';
+import { CountdownComponent } from 'src/app/advanced/a05-observable/a05-observable-example4/countdown.component';
+import { LearnxjsDirective } from './a05-observable/learnxjs.directive';
+import { LearnxjsContainerDirective } from './a05-observable/learnxjs-container.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     AdvancedRoutingModule,
     SharedModule,
+    FormsModule
   ],
   providers: [
     TodosService
@@ -31,6 +39,12 @@ import { TodosService } from 'src/app/advanced/todos.service';
     A05ObservableComponent,
     A06HttpRequestComponent,
     SquarePipe,
+    A05ObservableExample1Component,
+    A05ObservableExample2Component,
+    A05ObservableExample3Component,
+    CountdownComponent,
+    LearnxjsDirective,
+    LearnxjsContainerDirective
   ]
 })
 export class AdvancedModule {

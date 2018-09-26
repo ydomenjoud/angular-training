@@ -1,35 +1,138 @@
 <h1>Observable</h1>
 
+<h2>Operators</h2>
+
+<section class="flex">
+    <article>
+        <h3>Creation</h3>
+        <ul appLearnxjsContainer="creation">
+            <li><a appLearnxjs>create</a></li>
+            <li><a appLearnxjs>empty</a></li>
+            <li><a appLearnxjs>from</a></li>
+            <li><a appLearnxjs>fromEvent</a></li>
+            <li><a appLearnxjs>interval</a></li>
+            <li><a appLearnxjs>of</a></li>
+            <li><a appLearnxjs>range</a></li>
+            <li><a appLearnxjs>throw</a></li>
+            <li><a appLearnxjs>timer</a></li>
+        </ul>
+
+    </article>
+    <article>
+        <h3>Combination</h3>
+        <ul appLearnxjsContainer="combination">
+            <li><a appLearnxjs>combineAll</a></li>
+            <li><a appLearnxjs>combineLatest</a></li>
+            <li><a appLearnxjs>concat</a></li>
+            <li><a appLearnxjs>concatAll</a></li>
+            <li><a appLearnxjs>forkJoin</a></li>
+            <li><a appLearnxjs>merge</a></li>
+            <li><a appLearnxjs>mergeAll</a></li>
+            <li><a appLearnxjs>pairwise</a></li>
+            <li><a appLearnxjs>race</a></li>
+            <li><a appLearnxjs>startWith</a></li>
+            <li><a appLearnxjs>withLatestFrom</a></li>
+            <li><a appLearnxjs>zip</a></li>
+        </ul>
+    </article>
+    <article>
+        <h3>Filtering</h3>
+        <ul appLearnxjsContainer="filtering">
+            <li><a appLearnxjs>audit</a></li>
+            <li><a appLearnxjs>auditTime</a></li>
+            <li><a appLearnxjs>debounce</a></li>
+            <li><a appLearnxjs>debounceTime</a></li>
+            <li><a appLearnxjs>distinctUntilChanged</a></li>
+            <li><a appLearnxjs>filter</a></li>
+            <li><a appLearnxjs>first</a></li>
+            <li><a appLearnxjs>ignoreElements</a></li>
+            <li><a appLearnxjs>last</a></li>
+            <li><a appLearnxjs>sample</a></li>
+            <li><a appLearnxjs>single</a></li>
+            <li><a appLearnxjs>skip</a></li>
+            <li><a appLearnxjs>skipUntil</a></li>
+            <li><a appLearnxjs>skipWhile</a></li>
+            <li><a appLearnxjs>take</a></li>
+            <li><a appLearnxjs>takeUntil</a></li>
+            <li><a appLearnxjs>takeWhile</a></li>
+            <li><a appLearnxjs>throttle</a></li>
+            <li><a appLearnxjs>throttleTime</a></li>
+        </ul>
+    </article>
+    <article>
+        <h3>Transformation</h3>
+        <ul appLearnxjsContainer="transformation">
+            <li><a appLearnxjs>buffer</a></li>
+            <li><a appLearnxjs>bufferCount</a></li>
+            <li><a appLearnxjs>bufferTime</a></li>
+            <li><a appLearnxjs>bufferToggle</a></li>
+            <li><a appLearnxjs>bufferWhen</a></li>
+            <li><a appLearnxjs>concatMap</a></li>
+            <li><a appLearnxjs>concatMapTo</a></li>
+            <li><a appLearnxjs>exhaustMap</a></li>
+            <li><a appLearnxjs>expand</a></li>
+            <li><a appLearnxjs>groupBy</a></li>
+            <li><a appLearnxjs>map</a></li>
+            <li><a appLearnxjs>mapTo</a></li>
+            <li><a appLearnxjs>mergeMap</a></li>
+            <li><a appLearnxjs>partition</a></li>
+            <li><a appLearnxjs>pluck</a></li>
+            <li><a appLearnxjs>reduce</a></li>
+            <li><a appLearnxjs>scan</a></li>
+            <li><a appLearnxjs>switchMap</a></li>
+            <!--<li><a appLearnxjs>window</a></li>-->
+            <!--<li><a appLearnxjs>windowCount</a></li>-->
+            <!--<li><a appLearnxjs>windowTime</a></li>-->
+            <!--<li><a appLearnxjs>windowToggle</a></li>-->
+            <!--<li><a appLearnxjs>windowWhen</a></li>-->
+        </ul>
+    </article>
+</section>
+
 <h2>Basic</h2>
 <section class="code">
-  <article>
-    <code appHighlight [code]="componentCode" [expanded]="true"></code>
-  </article>
-  <article>
-    <input type="text" #todoName (keyup.enter)="addTodo(todoName.value)">
-    <button (click)="addTodo(todoName.value)">Add Todo</button>
+    <article>
+        <code appHighlight [code]="componentCode" [expanded]="true"></code>
+    </article>
+    <article>
+        <input type="text" #todoName (keyup.enter)="addTodo(todoName.value)">
+        <button (click)="addTodo(todoName.value)">Add Todo</button>
 
-    Last action
-    <ng-container *ngIf="(todoAdded$ | async) as todo">
-      <p>
-        Last todo added {{ todo.message }}
-      </p>
-      <ul>
-        <li
-          *ngFor="let element of (todo|keyvalue)"
-        >{{ element | json}}
-        </li>
-      </ul>
-    </ng-container>
-  </article>
+        Last action
+        <ng-container *ngIf="(todoAdded$ | async) as todo">
+            <p>
+                Last todo added {{ todo.message }}
+            </p>
+            <ul>
+                <li
+                        *ngFor="let element of (todo|keyvalue)"
+                >{{ element | json}}
+                </li>
+            </ul>
+        </ng-container>
+    </article>
 </section>
 
 
 <h2>Advanced</h2>
 <section class="code">
-  <article>
-    <code appHighlight [code]="component2Code" [expanded]="true"></code>
-  </article>
-  <article>
-  </article>
+    <article>
+        <code appHighlight [code]="component2Code" [expanded]="true"></code>
+    </article>
+    <article>
+    </article>
 </section>
+
+<h2>Examples</h2>
+
+<h3>Progress bar</h3>
+<button (click)="displayBar = !displayBar">
+    toggle bar
+</button>
+<countdown *ngIf="displayBar"></countdown>
+
+<app-a05-observable-example2></app-a05-observable-example2>
+
+<app-a05-observable-example3></app-a05-observable-example3>
+
+<app-a05-observable-example1></app-a05-observable-example1>

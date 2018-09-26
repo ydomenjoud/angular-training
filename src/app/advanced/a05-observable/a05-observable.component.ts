@@ -1,22 +1,26 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { from, interval, Observable, Subscription } from 'rxjs';
 import { TodosService } from 'src/app/advanced/todos.service';
 import { Todo } from 'src/app/advanced/todo';
+import { delay, groupBy, map, mergeAll, mergeMap, pairwise, take, tap, toArray } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-a05-observable',
-  templateUrl: './a05-observable.component.html',
-  styleUrls: ['./a05-observable.component.css']
+    selector: 'app-a05-observable',
+    templateUrl: './a05-observable.component.html',
+    styleUrls: ['./a05-observable.component.css']
 })
 export class A05ObservableComponent implements OnInit, OnDestroy {
 
-  subscription: Subscription;
+    subscription: Subscription;
 
-  todoAdded: Todo;
+    todoAdded: Todo;
 
-  todoAdded$: Observable<Todo>;
+    todoAdded$: Observable<Todo>;
 
-  componentCode = `
+    displayBar = false;
+
+
+    componentCode = `
   this.todoAdded$ = this.todosService.todoAddedObservable;
 
   this.subscription = this.todosService
@@ -26,7 +30,7 @@ export class A05ObservableComponent implements OnInit, OnDestroy {
     });
 `;
 
-  component2Code = `
+    component2Code = `
  const observable = interval(1000)
     .pipe(
       take(1),
@@ -46,25 +50,28 @@ export class A05ObservableComponent implements OnInit, OnDestroy {
   );
 `;
 
-  constructor(private todosService: TodosService) {
-  }
 
-  addTodo(message: string) {
-    this.todosService.addTodo(new Todo(message));
-  }
 
-  ngOnInit() {
+    constructor(private todosService: TodosService) {
+    }
 
-    this.todoAdded$ = this.todosService.todoAddedObservable;
+    addTodo(message: string) {
+        this.todosService.addTodo(new Todo(message));
+    }
 
-    this.subscription = this.todosService
-      .todoAdded$
-      .subscribe(value => {
-        this.todoAdded = value;
-      });
-  }
+    ngOnInit() {
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+        this.todoAdded$ = this.todosService.todoAddedObservable;
+
+        this.subscription = this.todosService
+            .todoAdded$
+            .subscribe(value => {
+                this.todoAdded = value;
+            });
+
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
 }

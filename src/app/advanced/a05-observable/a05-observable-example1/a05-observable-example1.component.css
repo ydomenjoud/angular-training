@@ -1,0 +1,8 @@
+input {
+    display: block;
+}
+
+button {
+    margin: 10px;
+    font-size: 2em;
+}

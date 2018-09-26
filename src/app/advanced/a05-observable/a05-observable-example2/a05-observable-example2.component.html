@@ -1,0 +1,15 @@
+
+<h3>Pick multiple number</h3>
+
+<button
+  #button
+  [value]="number"
+  *ngFor="let number of numbersList">
+  {{ number }}
+</button>
+
+<div *ngIf="selectedNumbersList">
+
+  Selected numbers {{ selectedNumbersList | json }}
+
+</div>

@@ -1,0 +1,29 @@
+
+<h3>Pick multiple number until timeout</h3>
+
+<button
+  *ngIf="!running"
+  (click)="start()">
+  Start
+</button>
+
+<ng-container *ngIf="running">
+  <button
+    (click)="pickNumber(number)"
+    *ngFor="let number of numbersList">
+    {{ number }}
+  </button>
+</ng-container>
+
+<button
+  *ngIf="running"
+  (click)="end()">
+  End
+</button>
+
+
+<div *ngIf="selectedNumbersList">
+
+  Selected numbers {{ selectedNumbersList | json }}
+
+</div>
