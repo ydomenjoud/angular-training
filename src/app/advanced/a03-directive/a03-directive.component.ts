@@ -7,6 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class A03DirectiveComponent implements OnInit {
 
+  directiveAdvancedCode1 = `
+import { Directive, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import { LearnxjsContainerDirective } from 'src/app/advanced/a05-observable/learnxjs-container.directive';
+
+@Directive({
+  selector: '[appLearnxjs]'
+})
+export class LearnxjsDirective implements OnInit {
+
+  @Input() appLearnxjs;
+
+  @HostBinding('href') href;
+  @HostBinding('target') target = '_blank';
+
+  readonly baseUrl = 'https://www.learnrxjs.io/operators/';
+
+  constructor(private elementRef: ElementRef,
+              private learnxjsContainerDirective: LearnxjsContainerDirective) {
+  }
+
+  ngOnInit(): void {
+    const name = this.elementRef.nativeElement.textContent;
+    this.href = this.baseUrl + this.appLearnxjs + this.learnxjsContainerDirective.appLearnxjsContainer + '/' + name.toLowerCase() + '.html';
+  }
+
+}
+`;
+
   directiveAdvancedCode = `
 import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import hljs from 'highlight.js';
@@ -77,10 +105,10 @@ export class HighlightBasicDirective {
   appHighlight = 'red';
 
   @Input()
-  bcolor = '';
+  backgroundColor = '';
 
   @Output()
-  pimpMyCar = new EventEmitter();
+  hovered = new EventEmitter<boolean>();
 
   @HostBinding('style.background-color')
   color;
@@ -91,11 +119,13 @@ export class HighlightBasicDirective {
   @HostListener('mouseenter')
   hostMouseEnter() {
     this.color = this.appHighlight;
+    this.hovered.emit(true);
   }
 
   @HostListener('mouseleave')
   hostMouseLeave() {
     this.color = '';
+    this.hovered.emit(false);
   }
 }
 
@@ -110,6 +140,10 @@ export class HighlightBasicDirective {
 `;
 
   constructor() {
+  }
+
+  hovered(isHover: boolean) {
+    console.log('isHover ', isHover);
   }
 
   ngOnInit() {

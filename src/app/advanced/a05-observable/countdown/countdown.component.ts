@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
-import { map, take, takeWhile, tap } from 'rxjs/operators';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { autoUnsubscribe } from 'src/app/tools/auto-unsubscribe.decorator';
 
 @Component({
-  selector: 'countdown',
+  selector: 'app-countdown',
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.sass']
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent implements OnInit, OnDestroy {
 
   @Input() duration = 5;
 
@@ -16,6 +17,9 @@ export class CountdownComponent implements OnInit {
   @Input() bgColor = '#007bff';
 
   width = 0;
+
+  @autoUnsubscribe()
+  subscriptions: Subscription;
 
   constructor() {
   }
@@ -28,7 +32,7 @@ export class CountdownComponent implements OnInit {
 
     const intervalDuration = this.duration / this.step;
 
-    interval(intervalDuration * 1000)
+    this.subscriptions = interval(intervalDuration * 1000)
       .pipe(
         map(value => value + 1),
         take(this.step)
@@ -37,6 +41,9 @@ export class CountdownComponent implements OnInit {
         this.width = this.calculWidth(value) * 100;
       });
 
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

@@ -8,10 +8,10 @@ export class HighlightBasicDirective {
   appHighlight = 'red';
 
   @Input()
-  bcolor = '';
+  backgroundColor = '';
 
   @Output()
-  pimpMyCar = new EventEmitter();
+  hovered = new EventEmitter<boolean>();
 
   @HostBinding('style.background-color')
   color;
@@ -22,10 +22,12 @@ export class HighlightBasicDirective {
   @HostListener('mouseenter')
   hostMouseEnter() {
     this.color = this.appHighlight;
+    this.hovered.emit(true);
   }
 
   @HostListener('mouseleave')
   hostMouseLeave() {
     this.color = '';
+    this.hovered.emit(false);
   }
 }

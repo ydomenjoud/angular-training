@@ -3,11 +3,11 @@ import { fromEvent, interval, Observable, Subscription, timer } from 'rxjs';
 import { auditTime, filter, finalize, map, startWith, take, takeWhile, tap } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-a05-observable-example1',
-    templateUrl: './a05-observable-example1.component.html',
-    styleUrls: ['./a05-observable-example1.component.css']
+    selector: 'app-save-cancel',
+    templateUrl: './save-cancel.component.html',
+    styleUrls: ['./save-cancel.component.css']
 })
-export class A05ObservableExample1Component implements OnInit, AfterViewInit, OnDestroy {
+export class SaveCancelComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @ViewChild('cancelButton') cancelButton;
 
@@ -26,9 +26,6 @@ export class A05ObservableExample1Component implements OnInit, AfterViewInit, On
     constructor() {
     }
 
-    // exemple
-    // 1 bouton submit qui va lancer une requête à l'api
-    // mais qui va attendre 5seconde un clic sur le bouton annuler
     manageButtonInteraction() {
 
         let canceled = false;

@@ -1,18 +1,16 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { fromEvent, merge, range, Subscription } from 'rxjs';
 import { bufferCount, map, tap } from 'rxjs/operators';
 
 
-// exemple 2
 // buffer : plusieurs clic avant d'envoyer toutes les valeurs
-// amélioration: faire un bufferTime avec une progress bar
 
 @Component({
-  selector: 'app-a05-observable-example2',
-  templateUrl: './a05-observable-example2.component.html',
-  styleUrls: ['./a05-observable-example2.component.css']
+  selector: 'app-select-number',
+  templateUrl: './select-number.component.html',
+  styleUrls: ['./select-number.component.css']
 })
-export class A05ObservableExample2Component implements OnInit, AfterViewInit {
+export class SelectNumberComponent implements OnInit, AfterViewInit {
 
   maxRange = 10;
 

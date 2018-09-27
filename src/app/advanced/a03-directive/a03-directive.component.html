@@ -1,17 +1,31 @@
 <h1>Directives</h1>
 
-<h2>basic</h2>
+<h2>host binding</h2>
+<section class="code">
+  <article>
+    <code appHighlight [code]="directiveAdvancedCode1" title="appHighlightBasic"></code>
+  </article>
+  <article>
+    <code appHighlight [code]="'<div appLearnxjsContainer=&quot;creation&quot;><a appLearnxjs>create</a></div>'"  language="html" title="html"></code>
+
+    <div appLearnxjsContainer="creation">
+      <a appLearnxjs>create</a>
+    </div>
+  </article>
+</section>
+
+<h2>event</h2>
 <section class="code">
   <article>
     <code appHighlight [code]="directiveBasicCode" title="appHighlightBasic"></code>
   </article>
-    <div appHighlightBasic color="red">Hello</div>
   <article>
+    <code appHighlight [code]="'<div appHighlightBasic color=&quot;red&quot; (hovered)=&quot;hovered($event)&quot;>Hello</div>'"  language="html" title="html"></code>
+    <div appHighlightBasic color="red" (hovered)="hovered($event)">Hello</div>
   </article>
 </section>
 
-
-<h2>Advanced</h2>
+<h2>transform html content</h2>
 <section class="code">
   <article>
     <code appHighlight [code]="directiveAdvancedCode" title="appHighlight"></code>

@@ -3,11 +3,11 @@ import { range, Subject, Subscription } from 'rxjs';
 import { bufferTime, take, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-a05-observable-example3',
-  templateUrl: './a05-observable-example3.component.html',
-  styleUrls: ['./a05-observable-example3.component.css']
+  selector: 'app-select-number-timeout',
+  templateUrl: './select-number-timeout.component.html',
+  styleUrls: ['./select-number-timeout.component.css']
 })
-export class A05ObservableExample3Component implements OnInit, OnDestroy {
+export class SelectNumberTimeoutComponent implements OnInit, OnDestroy {
 
   maxRange = 10;
 

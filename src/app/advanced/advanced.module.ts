@@ -10,13 +10,13 @@ import { A03DirectiveComponent } from 'src/app/advanced/a03-directive/a03-direct
 import { A04PipeComponent } from 'src/app/advanced/a04-pipe/a04-pipe.component';
 import { A05ObservableComponent } from 'src/app/advanced/a05-observable/a05-observable.component';
 import { A06HttpRequestComponent } from 'src/app/advanced/a06-http-request/a06-http-request.component';
-import { A05ObservableExample1Component } from './a05-observable/a05-observable-example1/a05-observable-example1.component';
-import { A05ObservableExample2Component } from './a05-observable/a05-observable-example2/a05-observable-example2.component';
-import { A05ObservableExample3Component } from './a05-observable/a05-observable-example3/a05-observable-example3.component';
+import { SaveCancelComponent } from './a05-observable/save-cancel/save-cancel.component';
+import { SelectNumberComponent } from './a05-observable/select-number/select-number.component';
+import { SelectNumberTimeoutComponent } from './a05-observable/select-number-timeout/select-number-timeout.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SquarePipe } from 'src/app/advanced/square.pipe';
 import { TodosService } from 'src/app/advanced/todos.service';
-import { CountdownComponent } from 'src/app/advanced/a05-observable/a05-observable-example4/countdown.component';
+import { CountdownComponent } from 'src/app/advanced/a05-observable/countdown/countdown.component';
 import { LearnxjsDirective } from './a05-observable/learnxjs.directive';
 import { LearnxjsContainerDirective } from './a05-observable/learnxjs-container.directive';
 
@@ -39,9 +39,9 @@ import { LearnxjsContainerDirective } from './a05-observable/learnxjs-container.
     A05ObservableComponent,
     A06HttpRequestComponent,
     SquarePipe,
-    A05ObservableExample1Component,
-    A05ObservableExample2Component,
-    A05ObservableExample3Component,
+    SaveCancelComponent,
+    SelectNumberComponent,
+    SelectNumberTimeoutComponent,
     CountdownComponent,
     LearnxjsDirective,
     LearnxjsContainerDirective

@@ -10,7 +10,7 @@
 </form>
 
 <div *ngIf="loading">
-    <countdown [duration]="cancelingTime" [step]="cancelingTime * 4"></countdown>
+    <app-countdown [duration]="cancelingTime" [step]="cancelingTime * 4"></app-countdown>
 </div>
 <button
     [hidden]="!loading"
