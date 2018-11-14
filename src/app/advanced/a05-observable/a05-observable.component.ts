@@ -1,28 +1,73 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { from, interval, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { TodosService } from 'src/app/advanced/todos.service';
 import { Todo } from 'src/app/advanced/todo';
-import { delay, groupBy, map, mergeAll, mergeMap, pairwise, take, tap, toArray } from 'rxjs/operators';
+import { catchError, debounce, delay } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-a05-observable',
-    templateUrl: './a05-observable.component.html',
-    styleUrls: ['./a05-observable.component.css']
+  selector: 'app-a05-observable',
+  templateUrl: './a05-observable.component.html',
+  styleUrls: ['./a05-observable.component.css']
 })
 export class A05ObservableComponent implements OnInit, OnDestroy {
 
-    subscription: Subscription;
+  subscription: Subscription;
 
-    todoAdded: Todo;
+  todoAdded: Todo;
 
-    todoAdded$: Observable<Todo>;
+  todoAdded$: Observable<Todo>;
 
-    displayBar = false;
+  displayBar = false;
 
+  counterValue: number;
 
-    componentCode = `
-  this.todoAdded$ = this.todosService.todoAddedObservable;
+  counterState: string;
 
+  replaySubjectCode = `
+   const replaySubject = new ReplaySubject(5);
+
+    replaySubject.next('Bonjour,');
+    replaySubject.next('j\\'ai une question');
+    replaySubject.next('pouvez vous me dire ou télécharger internet ?');
+    replaySubject.next('je n\\'arrive pas à me connecter');
+  
+    replaySubject
+      .subscribe(value => {
+        console.log(value);
+      });
+  `;
+
+  creatingObservablecode = `
+  startCounter() {
+    const tick$ = new Observable<number>(observer => {
+      this.counterValue = 0;
+      this.counterState = 'running';
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        observer.next(i);
+        if (i > 9) {
+          observer.complete();
+          clearInterval(interval);
+        }
+      }, 500);
+    });
+
+    tick$.subscribe(
+      value => {
+        this.counterValue = value;
+      },
+      error => {
+        this.counterState = error;
+      },
+      () => {
+        this.counterState = 'complete';
+      }
+    );
+  }
+`;
+
+  componentCode = `
   this.subscription = this.todosService
     .todoAdded$
     .subscribe(value => {
@@ -30,11 +75,11 @@ export class A05ObservableComponent implements OnInit, OnDestroy {
     });
 `;
 
-    component2Code = `
+  component2Code = `
  const observable = interval(1000)
     .pipe(
-      take(1),
       skip(5),
+      take(4),
       map(value => {
         console.log('map ', value);
         return value;
@@ -51,27 +96,87 @@ export class A05ObservableComponent implements OnInit, OnDestroy {
 `;
 
 
+  constructor(private todosService: TodosService) {
+  }
 
-    constructor(private todosService: TodosService) {
-    }
 
-    addTodo(message: string) {
-        this.todosService.addTodo(new Todo(message));
-    }
+  replaySubject() {
 
-    ngOnInit() {
+    const replaySubject = new ReplaySubject(5);
 
-        this.todoAdded$ = this.todosService.todoAddedObservable;
+    replaySubject.next('Bonjour,');
+    replaySubject.next('j\'ai une question');
+    replaySubject.next('pouvez vous me dire ou télécharger internet ?');
+    replaySubject.next('je n\'arrive pas à me connecter');
 
-        this.subscription = this.todosService
-            .todoAdded$
-            .subscribe(value => {
-                this.todoAdded = value;
-            });
+    replaySubject
+      .subscribe(value => {
+        console.log(value);
+      });
 
-    }
+  }
 
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
-    }
+  addTodo(message: string) {
+    this.todosService.addTodo(new Todo(message));
+  }
+
+  startCounter() {
+    const tick$ = new Observable<number>(observer => {
+      this.counterValue = 0;
+      this.counterState = 'running';
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        observer.next(i);
+        if (i > 9) {
+          observer.complete();
+          clearInterval(interval);
+        }
+      }, 500);
+    });
+
+    tick$.pipe().subscribe(
+      value => {
+        this.counterValue = value;
+      },
+      error => {
+        this.counterState = error;
+      },
+      () => {
+        this.counterState = 'complete';
+      }
+    );
+  }
+
+  createObservable() {
+    const observable = new Observable(observer => {
+
+      const subject = new BehaviorSubject(null);
+      subject.getValue();
+      subject.next('yannick');
+
+
+    });
+
+  }
+
+  ngOnInit() {
+
+    this.replaySubject();
+
+    this.todoAdded$ = this.todosService.todoAdded$;
+
+    this.subscription = this.todosService
+      .todoAdded$
+      .subscribe(value => {
+        this.todoAdded = value;
+      });
+
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+
 }

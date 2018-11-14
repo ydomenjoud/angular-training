@@ -9,13 +9,13 @@ export class TodosService {
 
   private todosList: Todo[] = [];
 
-  todoAdded$ = new ReplaySubject<Todo>();
+  private todoAddedSubject = new ReplaySubject<Todo>();
 
   constructor() {
   }
 
-  get todoAddedObservable() {
-    return this.todoAdded$.asObservable();
+  get todoAdded$() {
+    return this.todoAddedSubject.asObservable();
   }
 
   get todos() {
@@ -28,7 +28,7 @@ export class TodosService {
 
   addTodo(todo: Todo) {
     this.todosList.push(todo);
-    this.todoAdded$.next(todo);
+    this.todoAddedSubject.next(todo);
   }
 
   removeTodo(todo: Todo | number) {
